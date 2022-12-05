@@ -6,7 +6,16 @@ public:
     double z;
     // Constructor
     Vec3(double x, double y, double z) : x(x), y(y), z(z) {}
+ 
+    // Access the x, y, and z components of the vector
+    double& operator[](int i) {
+        return *(&x + i);
+    }
 
+    const double& operator[](int i) const {
+        return *(&x + i);
+    }
+ 
     // Overload the + operator to perform vector addition
     Vec3 operator+(const Vec3& other) const {
         return Vec3(x + other.x, y + other.y, z + other.z);
