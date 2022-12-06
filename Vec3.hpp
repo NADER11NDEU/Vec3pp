@@ -177,6 +177,13 @@ struct Vec3 {
         double m = mag();
         return Vec3(x / m, y / m, z / m);
     }
+    
+    // Return the normalized version of the vector without modifying the original
+    Vec3 normalized() const {
+        Vec3 v = *this;
+        v.normalize();
+        return v;
+    }
 
     // Return the angle between two vectors
     double angle(const Vec3& other) const {
